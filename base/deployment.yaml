@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task2-flask-deployment
+  labels:
+    app: task2-flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: task2-flask
+  template:
+    metadata:
+      labels:
+        app: task2-flask
+    spec:
+      containers:
+      - name: flask
+        image: shraddhaskumar/task2-flask:latest
+        ports:
+        - containerPort: 5000
